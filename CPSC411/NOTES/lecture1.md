@@ -87,3 +87,36 @@
 -   Social
 -   Sports
 -   Travel
+
+## IOS Application Development
+
+-   Programming language
+    -   Objective-C
+    -   Swift (since 2014)
+-   iOS exposes iOS SDK via a set of Swift (/Objective-
+    C) APIs which developers can use to build iOS
+    applications
+
+-   Xcode is an IDE which developers can use to
+    develop, test, and build iOS applications
+
+-   Download and Install Xcode on your development
+    machine
+
+## Features of Xcode
+**Coding**
+- Built-in iOS SDKs
+- Installation of 3rd-party SDKs
+- Code generation of application skeleton
+- UI screen editor
+  - Storyboard Interface Builder (IB)
+  - SwiftUI Interface Builder
+- Code editor
+- Build applications
+
+**Testing**
+- Built-in emulators
+- Running builds on emulators
+- Debugging
+
+**Creating builds**
