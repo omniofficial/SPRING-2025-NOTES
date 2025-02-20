@@ -37,7 +37,7 @@ double jaro(const string &s1, const string &s2)
   }
 
   /*----------- SLIDE 1.2 SNIPPET: COUNTING TRANSPOSITIONS -----------*/
-  int n = 0; // Inner loop iterator that tracks index of matched characters in string2.
+  int n = 0;                     // Inner loop iterator that tracks index of matched characters in string2.
   for (int i = 0; i < len1; i++) // Outer loop iterates through string1 length. Takes each char in string1 and compares to each char in string2. Stops once the max length is met.
   {
     if (s1Matches[i] == 1) // As long as string1 character has been matched with a string2 character, then this will trigger.
@@ -51,7 +51,7 @@ double jaro(const string &s1, const string &s2)
   }
 
   /*----------- SLIDE 1.3 SNIPPET: CALCULATING THE JARO SIMILARITY SCORE -----------*/
-  double jaroSimilarity = (matches / (double)len1 + matches / (double)len2 + (matches - transpositions / 2.0) / matches) / 3.0;
+  double jaroSimilarity = (matches / (double)len1 + matches / (double)len2 + (matches - transpositions / 2.0) / matches) / 3.0; // FIND JARO SIMILARITY
   return jaroSimilarity;
 }
 
