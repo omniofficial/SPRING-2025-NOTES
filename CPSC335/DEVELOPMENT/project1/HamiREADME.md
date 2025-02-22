@@ -4,7 +4,7 @@
 
 ## Brief Overview
 
-
+A set of cities is laid out in a circle, connected by a circular road that runs clockwise. Each city has a gas station providing fuel, and the distances between neighboring cities are known. A car, capable of driving a certain number of miles per gallon of fuel, must pick a starting city such that it can fill up the tank in that city. The car then drives to the next city, refills with that city’s fuel, continues to the next city, and so on, until it returns to the starting city with 0 or more gallons of fuel remaining. This city is called the preferred starting city. The problem guarantees that there will always be exactly one valid starting city. The input consists of two arrays: one for the distances between neighboring cities and another for the fuel available at each city. The goal is to design an algorithm that returns the index of the preferred starting city.
 
 ## How to execute this program
 
