@@ -57,17 +57,13 @@ double jaro(const string &s1, const string &s2)
 
 /*----------- SLIDE 2.1 SNIPPET: IDENTIFYING THE COMMON PREFIX -----------*/
 
-double jaroWinklerSimilarity(const string &s1, const string &s2, double jaroSimilarity)
+double jaroWinklerSimilarity(const string &s1, const string &s2, double jaroSimilarity) // Passing values by abstraction
 {
-  // If Jaro similarity is 1.0, no need to adjust (exact match)
-  if (jaroSimilarity == 1.0)
-    return 1.0;
-
   // Determine the length of common prefix (up to 4 characters)
   int commonPrefix = 0;
-  for (int i = 0; i < (4, min(s1.length(), s2.length())); i++)
+  for (int i = 0; i < min(4, (int)min(s1.length(), s2.length())); i++) // Loop can run up to 4 characters. Does not run past 4 characters or past the shortest string length. To avoid error, we converted size_t to int.
   {
-    if (s1[i] == s2[i])
+    if (s1[i] == s2[i]) // If character is found, there is a common Prefix (up to 4 characters)
     {
       commonPrefix++;
     }
@@ -84,4 +80,22 @@ double jaroWinklerSimilarity(const string &s1, const string &s2, double jaroSimi
   /*----------- SLIDE 3.1 SNIPPET: FINDING THE OVERALL SIMILARITY SCORE -----------*/
   double jaroWinklerSimilarity = jaroSimilarity + winklerAdjustment;
   return jaroWinklerSimilarity;
+}
+
+int main()
+{
+  // EXAMPLE, or can take user input if needed.
+  string s1 = "martha";
+  string s2 = "marhta";
+
+  // Original Jaro score
+  double jaroSimilarity = jaro(s1, s2);
+
+  // Final JaroWinkler Score
+  double jaroWinklerScore = jaroWinklerSimilarity(s1, s2, jaroSimilarity);
+
+  // Output final JaroWinkler Score
+  cout << "Jaro-Winkler Similarity Score: " << jaroWinklerScore << endl;
+
+  return 0;
 }
