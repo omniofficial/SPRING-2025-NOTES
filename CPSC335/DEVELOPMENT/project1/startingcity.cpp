@@ -1,3 +1,9 @@
+// -------------------------------
+// Assignment: Project 1 Algorithm 1: Greedy Approach to Hamiltonian Problem
+// Due date: 2/24/25
+// Purpose: Write an algorithm for a spinoff of a Hamiltonian Problem involving cars and city distances.
+// -------------------------------
+
 #include <iostream>
 #include <sstream>
 #include <string>
