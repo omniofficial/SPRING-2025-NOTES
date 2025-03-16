@@ -177,7 +177,7 @@ def main():
         for slot in available_slots:
             print(f"[{slot[0]}, {slot[1]}]")
     else:
-        print("\nNo available meeting slots found.")
+        print("\nNo times found. They cannot meet due to scheduling conflicts.")
 
 
 # Run main

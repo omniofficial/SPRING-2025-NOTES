@@ -1,4 +1,88 @@
 ## Ensuring Convenient Schedules: PSEUDOCODE
 
+# Function to convert time from HH:MM format to minutes
+Function time_to_minutes(time_str):
+    Split the time_str into hours and minutes
+    Convert hours to minutes and add to minutes
+    Return total minutes
 
+# Function to convert time from minutes to HH:MM format
+Function minutes_to_time(minutes):
+    Convert minutes to hours and remainder as minutes
+    Return in "HH:MM" format
+
+# Merge overlapping schedules
+Function merge_schedules(schedules):
+    Convert all time intervals from military time to minutes and sort by ascending order
+    Initialize merged as an empty list
+    For each interval in sorted schedules:
+        If merged is not empty and the last merged interval overlaps with current interval:
+            Merge the intervals by updating the end time of the last merged interval
+        Else:
+            Add the current interval to merged list
+    Return merged list
+
+# Function to find the common working period (min and max times both are available)
+Function find_common_working_period(person1_DailyAct, person2_DailyAct):
+    Convert the daily active hours for both persons from HH:MM to minutes
+    Find the latest start time (common_start) by taking the max of both start times
+    Find the earliest end time (common_end) by taking the min of both end times
+    Return common_start, common_end
+
+# Function to check if the time slot is free
+Function is_free(prev_end, start, meeting_duration):
+    Calculate free_time equals the difference between start and ending time of previous event
+    If free_time is greater than or equal to meeting_duration:
+        Return true (time slot is free)
+    Else:
+        Return false (time slot is not free)
+
+# Function to check if the available time is valid (if it meets the meeting duration)
+Function is_time_valid(free_time, meeting_duration):
+    If free_time is greater than or equal to meeting_duration:
+        Return true (valid time slot)
+    Else:
+        Return false (not valid time slot)
+
+# Function to find available slots for a meeting
+Function find_available_slots(person1_Schedule, person2_Schedule, person1_DailyAct, person2_DailyAct, meeting_duration):
+    Find the common start and end times for both persons using by calling the find_common_working_period function
+    Merge the schedules of both persons using merge_schedules function. Return merged list.
+    Initialize available_slots as an empty list
+    Set prev_end to common_start (start of common working period)
+    
+    For each merged interval (NOT TUPLE) in the merged schedules list:
+        Calculate free_time between prev_end and the current interval's start time (similar to previous function)
+        Call is_free function to check if the time slot is free
+        If free time is sufficient, append or add the available slot to available_slots
+
+    Call is_time_valid to check if the final time slot before common_end is valid for the meeting duration. Return TRUE or FALSE.
+    If valid (TRUE), append the final available slot to available_slots
+
+    Return available_slots
+
+# Function to get user input for schedules and meeting duration
+Function get_user_input():
+    User input for the number of busy intervals for Person 1
+    Initialize person1_Schedule
+    For each busy interval, ask the user to input start and end times
+    Store intervals in person1_Schedule
+
+    User input for the daily active hours for Person 1
+    Store daily active hours in person1_DailyAct
+
+    DO THE SAME FOR PERSON 2
+
+    User input for the meeting duration
+
+    Return person1_Schedule, person2_Schedule, person1_DailyAct, person2_DailyAct, meeting_duration
+
+# Main function to run the program
+Function main():
+    Call get_user_input
+    Call find_available_slots, which will run find_common_working_period, merge_schedules, is_free, and is_time_valid.
+    If available slots are found:
+        Print available meeting times
+    Else:
+        Print "No times found. They cannot meet due to scheduling conflicts."
 
