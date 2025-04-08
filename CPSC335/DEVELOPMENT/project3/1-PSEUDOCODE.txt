@@ -1,2 +1,56 @@
 # THE SPREAD OF FIRE IN A FOREST: PSEUDOCODE
 
+## GET USER INPUT
+Get user to input num of rows in forest
+Initialize forest list
+Make sure input has space separated integers, then append each row to the forest list
+
+## CHECK CELLS
+# Check up
+If row > 0 and forest[row - 1][column] is a healthy tree (1):
+    Burn the tree (set it to 2)
+    Add the tree to the queue with the incremented day and add it to burned_today
+
+# Check down
+If row < rows - 1 and forest[row + 1][column] is a healthy tree (1):
+    Burn the tree (set it to 2) 
+    Add to the queue with incremented day and add to burned_today
+
+# Check left
+If column > 0 and forest[row][column - 1] is a healthy tree (1):
+    Burn the tree (set it to 2)
+    Add to the queue with incremented day and add to burned_today
+
+# Check right
+If column < cols - 1 and forest[row][column + 1] is a healthy tree (1):
+    Burn the tree (set it to 2)
+    Add to the queue with incremented day and add to burned_today
+
+
+## TRACK FIRE SPREAD
+# Check if any healthy trees remain
+If there are no healthy trees left:
+    Return 0 (no healthy trees to burn)
+
+Initialize an empty list burned_today to track the trees burned today
+Set is_burned to False (nothing has been burned at DAY 0)
+Initialize the days count as -1
+
+# Start spreading the fire
+While the queue is not empty:
+    Pop the first element from the queue (current tree position and day)
+    Call check_adjacent_cells to spread fire to adjacent cells
+    If trees were burned today:
+        Increment the day count and output the trees burned for the day
+        Reset burned_today count
+
+# After the loop, check if there are any remaining healthy trees
+If any healthy trees are found:
+    Return -1 (unreachable healthy trees)
+
+Return the total number of days it took for all trees to burn
+
+## MAIN FUNCTION
+Call get_forest_input()
+Call track_fire_spread()
+Output result
