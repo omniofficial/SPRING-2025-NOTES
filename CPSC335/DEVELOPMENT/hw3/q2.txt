@@ -1,0 +1,61 @@
+For each of the following problems: design a reduction algorithm that solves the problem.
+Prove the time efficiency class of your algorithm. Hint: Your algorithm should use a hash table
+or sorting algorithm.
+
+(A) ----------------------------------------------------------
+PSUEDOCODE:. 
+## Initialize inputs
+Set L to [elements in the first list]
+Set R to [elements in the second list]
+
+## Use hash table to build the union
+Initialize an empty hash table called seen
+Initialize an empty list called S
+
+## Add elements from L
+For each element in L:
+    If element not in seen:
+        Add element to seen
+        Append element to S
+
+## Add elements from R
+For each element in R:
+    If element not in seen:
+        Add element to seen
+        Append element to S
+
+## Output final result
+Print "Union of L and R is:"
+Print S
+
+PROVING EFFICIENCY CLASS:
+Step counts (line by line): 1 + 1 + 1 + 1 + (n+1) + n + n + (n+1) + n + n + 1 + 1 = O(n)
+
+
+
+(B) ----------------------------------------------------------
+PSEUDOCODE:
+## Initialize inputs
+Set L to [elements in the first list]
+Set R to [elements in the second list]
+
+## Use a hash table to store elements in R
+Initialize an empty hash table called in R
+
+For each element in R:
+    Add element to in R
+
+## Filter elements in L not in R
+Initialize an empty list called S
+
+For each element in L:
+    If element not in in R:
+        Append element to S
+
+## Output final result
+Print "Set difference L - R is:"
+Print S
+
+PROVING EFFICIENCY CLASS:
+Step counts (line by line): 1 + 1 + 1 + (n+1) + n + 1 + (n+1) + n + n + 1 + n = O(n)
+
