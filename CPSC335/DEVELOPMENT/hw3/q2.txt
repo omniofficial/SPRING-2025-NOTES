@@ -8,7 +8,7 @@ PSUEDOCODE:
 Set L to [elements in the first list]
 Set R to [elements in the second list]
 
-## Use hash table to build the union
+## Hash Table initialization
 Initialize an empty hash table called seen
 Initialize an empty list called S
 

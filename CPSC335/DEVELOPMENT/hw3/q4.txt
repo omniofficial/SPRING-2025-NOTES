@@ -1,0 +1,22 @@
+QUESTION 4: Design an exhaustive search or optimization algorithm that solves the problem below.
+Describe your algorithm with clear pseudocode and prove the time efficiency class of your
+algorithm, using step counts.
+
+PSUEDOCODE:
+## Initialize input bounds
+Initialize lower_bound to a
+Initialize upper_bound to b
+
+## Finding a Pythagorean triple of x, y and z
+For x from a to b:
+    For y from x to b:
+        For z from y to b:
+            If x^2 + y^2 == z^2:
+                Return (x, y, z)
+
+## If no triple found
+Return None
+
+
+PROVING EFFICIENCY CLASS:
+Step counts (line by line): 1 + 1 + (n+1) + n^2 + n^3 + n^3 + n^3 + 1 = O(n^3)
