@@ -1,9 +1,9 @@
-For each of the following problems: design a reduction algorithm that solves the problem.
+QUESTION 2: For each of the following problems: design a reduction algorithm that solves the problem.
 Prove the time efficiency class of your algorithm. Hint: Your algorithm should use a hash table
 or sorting algorithm.
 
 (A) ----------------------------------------------------------
-PSUEDOCODE:. 
+PSUEDOCODE:
 ## Initialize inputs
 Set L to [elements in the first list]
 Set R to [elements in the second list]

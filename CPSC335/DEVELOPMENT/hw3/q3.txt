@@ -1,0 +1,42 @@
+QUESTION 3: For each of the following problems, design a naïve or a greedy algorithm that solves the
+problem. Your algorithm should be clear, correct and able to terminate. Prove the time efficiency
+class of your algorithm.
+
+(A) ----------------------------------------------------------
+PSUEDOCODE:
+## Initialize inputs
+Set rental_price to r
+Set purchase_price to p
+Set num_days to d
+
+## Compute total rental cost
+Set total_rental_cost to rental_price * num_days
+
+## Compare costs
+If total_rental_cost < purchase_price
+    Return True
+Else:
+    Return False
+
+PROVING EFFICIENCY CLASS:
+Step counts (line by line): 1 + 1 + 1 + 1 + 1 = O(1)
+
+
+
+(B) ----------------------------------------------------------
+PSUEDOCODE:
+## Initialize inputs
+Set L to the input list of n elements
+
+## Initialize output list
+Set R to an empty list
+
+## Traverse L from end to beginning
+For i from n - 1 down to 0:
+    Append L[i] to R
+
+## Return the reversed list
+Return R
+
+PROVING EFFICIENCY CLASS:
+Step counts (line by line): 1 + 1 + (n + 1) + n + 1 = O(n)
