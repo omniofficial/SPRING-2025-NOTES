@@ -1,0 +1,43 @@
+QUESTION 1: Compute the list of all permutations of [a, b, c, d ] using the Johnson-Trotter
+algorithm. Show your work.
+
+## Initialize elements
+Set elements to [a, b, c, d]
+Set direction for each element to left
+Initialize a list called permutations
+Append the initial elements to permutations
+
+## Find largest mobile element
+For each element in elements:
+    If the element is pointing left and not at index 0 and is greater than the element to its left:
+        Mark element as a mobile candidate
+    If the element is pointing right and not at the last index and is greater than the element to its right:
+        Mark element as a mobile candidate
+
+If no mobile candidates exist:
+    Stop the algorithm
+
+Set largest_mobile variable to the maximum of all mobile candidates
+
+## Swap mobile element
+If largest_mobile is pointing left:
+    Swap it with the element to its left
+Else if it is pointing right:
+    Swap it with the element to its right
+
+## Reverse direction of all elements larger than the mobile
+For each element in elements:
+    If the element is greater than largest_mobile:
+        Reverse its direction
+
+## Loop until no more mobile elements
+While a mobile element exists:
+    Call find_largest_mobile_element
+    Call swap_mobile_element
+    Call reverse_direction_of_larger_elements
+    Append the current state of elements to permutations
+
+## Output final result
+Print all permutations
+Print total number of permutations (should be n!)
+
