@@ -1,0 +1,59 @@
+# Stock Purchase Maximization Problem (Part A): PSEUDOCODE
+
+## GET USER INPUT
+Ask the user how many companies they want to choose from
+Create an empty list to store company information
+
+For each company:
+  Ask the user how many stocks are available for that company
+  Ask the user what is the value of each stock
+  Store this information (number of stocks and stock value) in the companies list
+
+After collecting all company info:
+  Ask the user how much money they want to invest
+  Store this as the total investment amount
+
+Return the list of companies and the investment amount
+
+## VERIFY COMBINATIONS
+Given a candidate combination of companies:
+  Set total value to 0
+
+  For each company in the combination:
+    Multiply the number of stocks by the value per stock
+    Add this to the total value
+
+If the total value is less than or equal to the investment amount:
+  Return True (this combination is valid)
+  Else:
+  Return False
+
+FIND BEST STOCK COMBINATION
+Set the best combination to None
+Set the best total value to 0
+
+Go through every possible combination of companies (including groups of 1 up to all companies):
+  For each combination:
+    Check if the total cost of that combination is within the budget using the verify function
+    If it is valid and has a higher total value than any previous combination:
+      Save this as the new best combination
+      Save its value as the best total value
+
+After checking all combinations:
+  Return the best combination and its total value
+
+MAIN FUNCTION
+Call the function to get user input (companies and investment amount)
+Call the function to find the best stock combination within budget
+
+If no valid combination is found:
+  Print a message saying no combination is valid
+  Else:
+  Print the best combination of companies (using their index positions)
+  For each selected company:
+    Show how many stocks it has and what each stock is worth
+  Show the total investment value for this combination
+
+
+Call the main function
+
